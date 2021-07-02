@@ -1,0 +1,70 @@
+---
+output: pdf_document
+fontsize: 12pt
+---
+\pagenumbering{gobble}
+```{r, include=FALSE}
+source("data prep.R")
+```
+
+
+```{r echo = FALSE}
+
+#Change 1 to i when ready to execute
+
+district <- results_both$Dist[i]
+# intakes <- results_both$Intakes[i]
+accepted <- results_both$`Not Rejected`[i]
+
+# intake_type <-  as.data.frame(results_both$`Intake Case Types`[i])
+accepted_type <- as.data.frame(results_both$`Non-rejected Case Types`[i]) %>%
+  rename(Cases = Intakes)
+
+Avg_Pov <- results_both$Avg_Poverty[i]
+Vets <- results_both$Vets[i]
+COVID <- results_both$COVID[i]
+DV <- results_both$DV[i]
+Avg_Age <- results_both$`Avg Age`[i]
+Clients_w_Children <- results_both$`Clients with Children`[i]
+Total_Children <- results_both$`Total Children`[i]
+Total_HH_size <- results_both$`Total HH size`[i]
+intakes <- results_both$Intakes[i]
+
+```
+
+# Texas RioGrande Legal Aid (TRLA) services for `r district` in 2020
+
+## TRLA completed `r accepted` cases in your district in 2020.
+
+Case types and counts:
+`r knitr::kable(accepted_type)`
+
+Of the clients we served in your district:
+
+- `r COVID` clients disclosed that they were affected by COVID-19.
+
+- `r Clients_w_Children` clients had children.
+
+- On average, clients were at `r Avg_Pov` percent of the federal poverty level.
+
+  - For a family of 4, the federal poverty level is $26,200.
+
+
+
+```{r, echo = FALSE}
+
+# Number of intakes #
+# Number of cases closed #
+# Case types (intake)
+# Case types (closed)
+# Average % poverty level #
+# Approx number of veterans #
+# Approx number affected by COVID #
+# Number involving DV #
+# Average age at intake #
+# Number of clients with children #
+# Number of children #
+
+
+```
+
